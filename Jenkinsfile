@@ -1,7 +1,7 @@
 pipeline {
 	agent any
 		tools{
-			maven 'maven-3.5.2'
+			maven 'maven-3.8.4'
 	    }
 		environment
 		{ 
@@ -37,7 +37,7 @@ pipeline {
 				configFileProvider([configFile(fileId: '5bddc05b-6648-42da-8916-73b4a94c5abb', variable: 'Maven_Settings1')]) {
 				withCredentials([usernamePassword(credentialsId: 'anypoint-platform', usernameVariable: 'DEVOPSUSERNAME', passwordVariable: 'DEVOPSPASSWORD')]) {
 				sh "echo ${DEVOPSUSERNAME}"
-				sh "mvn -s $Maven_Settings1 clean package deploy"
+				sh "mvn -s $Maven_Settings1 clean package deploy -DskipMunitTests"
 				echo "exchange completed"
 			      }}}}}
 		    
@@ -51,7 +51,7 @@ pipeline {
 				configFileProvider([configFile(fileId: '5bddc05b-6648-42da-8916-73b4a94c5abb', variable: 'Maven_Settings1')]) {
 				withCredentials([usernamePassword(credentialsId: 'anypoint-platform', usernameVariable: 'DEVOPSUSERNAME', passwordVariable: 'DEVOPSPASSWORD')]) {
 				sh "echo ${DEVOPSUSERNAME}"
-				sh "mvn -s $Maven_Settings1 deploy -DmuleDeploy -DskipMunitTests -Dcloudhub.muleVersion=${DEVOPS_MULEVERSION} -Dcloudhub.applicationName=rtf-pub-black-skip-test-nine-api -DAnypoint.uri=${DEVOPS_MULE_ANYPOINT_URI} -Dcloudhub.businessGroupId=${DEVOPS_CLOUDHUB_BUSINESSGROUPID} -Dcloudhub.connectedAppClientId=$DEVOPSUSERNAME -Dcloudhub.connectedAppClientSecret=$DEVOPSPASSWORD -Dcloudhub.connectedAppGrantType=${DEVOPS_CLOUDHUB_CONNECTEDAPPGRANTTYPE}"
+				sh "mvn -s $Maven_Settings1 deploy -DmuleDeploy -DskipMunitTests -Dcloudhub.muleVersion=${DEVOPS_MULEVERSION} -Dcloudhub.applicationName=rtf-pub-black-skip-test-nine-api -DAnypoint.uri=${DEVOPS_MULE_ANYPOINT_URI} -Dcloudhub.businessGroupId=${DEVOPS_CLOUDHUB_BUSINESSGROUPID} -Dcloudhub.connectedAppClientId=$DEVOPSUSERNAME -Dcloudhub.connectedAppClientSecret=$DEVOPSPASSWORD -Dcloudhub.connectedAppGrantType=${DEVOPS_CLOUDHUB_CONNECTEDAPPGRANTTYPE} -Dcloudhub.environment=${DEVOPS_CLOUDHUB_ENVIRONMENT}"
 				}}}}}
 				}
 	
