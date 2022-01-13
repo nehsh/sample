@@ -3,7 +3,7 @@
 	<groupId>3f00347a-d80d-48df-98e8-a8b65d91fc61</groupId>
 	<modelVersion>4.0.0</modelVersion>
 	<artifactId>rtf-pub-black-skip-test-nine-api</artifactId>
-	<version>1.1.0</version>
+	<version>1.1.1</version>
 	<packaging>mule-application</packaging>
 	<name>rtf-pub-black-skip-test-nine-api</name>
 	<properties>
