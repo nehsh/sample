@@ -2,10 +2,10 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<groupId>3f00347a-d80d-48df-98e8-a8b65d91fc61</groupId>
 	<modelVersion>4.0.0</modelVersion>
-	<artifactId>rtf-pub-black-skip-test-eight-api</artifactId>
+	<artifactId>rtf-pub-black-skip-test-nine-api</artifactId>
 	<version>1.1.0</version>
 	<packaging>mule-application</packaging>
-	<name>rtf-pub-black-skip-test-eight-api</name>
+	<name>rtf-pub-black-skip-test-nine-api</name>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -29,22 +29,22 @@
 				<configuration>
 					<classifier>mule-application</classifier>
 					<runtimeFabricDeployment>
-						<uri>https://anypoint.mulesoft.com</uri>
-						<businessGroupId>3f00347a-d80d-48df-98e8-a8b65d91fc61</businessGroupId>
-						<muleVersion>4.3.0</muleVersion>
-						<connectedAppClientId>004d5f11b5cd4f2d956ce1201099ba76</connectedAppClientId>
-						<connectedAppClientSecret>beeaD9a6897d4c0b8Ea925fa0D091817</connectedAppClientSecret>
+						<uri>${Anypoint.uri}</uri>
+						<businessGroupId>${cloudhub.businessGroupId}</businessGroupId>
+						<muleVersion>${cloudhub.muleVersion}</muleVersion>
+						<connectedAppClientId>${cloudhub.connectedAppClientId}</connectedAppClientId>
+						<connectedAppClientSecret>${cloudhub.connectedAppClientSecret}</connectedAppClientSecret>
 						<connectedAppGrantType>client_credentials</connectedAppGrantType>
-						<applicationName>rtf-pub-black-skip-test-eight-api</applicationName>
+						<applicationName>${cloudhub.applicationName}</applicationName>
 						<target>beam-dev-rtf-gke-cluster-pub</target>
-						<environment>Dev</environment>
+						<environment>${cloudhub.environment}</environment>
 						<provider>MC</provider>
 						<replicas>1</replicas>
 						<skipDeploymentVerification>true</skipDeploymentVerification>
 						<deploymentSettings>
 							<http>
 								<inbound>
-									<publicUrl>rtf-pub-black-skip-test-eight-api.beamsuntory.com/*</publicUrl>
+									<publicUrl>rtf-pub-black-skip-test-nine-api.beamsuntory.com/*</publicUrl>
 								</inbound>
 							</http>
 						</deploymentSettings>
